@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Hj-Smith-Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="Style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="Script.js"></script>
+</head>
+
+
+<body onload="BufferLoad()" style="margin:0;">
+    <div id="loader"></div>
+
+    <div class="Modal-Login shadowborder animate">
+        <h4 style="float:right; color:black;cursor:pointer;font-weight:800" onclick="LoginForm()">X</h4>
+        <h2 style="color:#ff343b; font-weight:600; margin-bottom:25px">LOG IN</h2>
+
+        <form action="/action_page.php" method="post">
+            <input type="text" placeholder="Username" name="uname" required><br/>
+
+            <input type="password" placeholder="Password" name="psw" required><br/>
+            <ul>
+               <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit"><h4>Login</h4></button></li> 
+               <li style="float:right"><h5  !important;float:right;"><a style="color:purple"href="#">Forgot password?</a></h5></li>
+            </ul>
+        </form>
+
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="Assets/Images/hjsmith-07.png" class="img-responsive" alt="Image" width="200" height="200">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Browse</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" Onclick="DropDownClick(0)"><img src="Assets/Icons/user.png" alt="add" width="15" height="15"/> Users</a>
+                        <div class="custom-dropdown">
+                            <div><button style="width:100px"  onclick="LoginForm()">Login</button></div>
+                            <div><button style="width:100px">Sign Up</button></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- First Container -->
+    <div class="container-fluid bg-1 text-left">
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 style="font-size:60px;margin-left:45px">Turn Your PHONE Into CASH!</h1>
+                <h3 style="margin-left:45px;color:hsl(0, 8%, 71%)">Get cash in turn for reading news, Watching videos and listening to audio<br /><br /><br /></h3>
+                <button class="custom-btn" style="margin-left:45px; font-size:medium"  Onclick="DropDownClick(1)">SignUp/Login</button>
+                <div class="custom-dropdown"style="margin-left:45px">
+                    <div><button style="width:140px" onclick="LoginForm()">Login</button></div>
+                    <div><button style="width:140px">Sign Up</button></div>
+                </div>
+            </div>
+
+            <div class="col-sm-5 hidden-xs">
+                <img src="Assets/Images/hjsmith-02.png" class="img-responsive pull-right img" alt="Image" style="width:68%">
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Container -->
+    <div class="container-fluid bg-2 text-center">
+        <div class="row text-center" style="margin-left:10px;margin-right:10px;">
+            <div class="col-sm-5">
+                <img src="Assets/Images/hjsmith-03.png" class="img-responsive center img" alt="Image" style="width:80%">
+            </div>
+
+            <div class="col-sm-7">
+                <h1 style="color:#5d073e;font-size:6vw">Why choose us?</h1>
+
+                <div class="row" style="margin-left:20px">
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/debit-card.png" class="img-responsive center img" alt="Image" style="width:100%">
+
+                        <h1 style="color:#5d073e;font-size:17px">Instant Payout</h1>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <!-- Should Be Empty For Space in between -->
+                    </div>
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/phone-call.png" class="img-responsive center img" alt="Image" style="width:100%">
+                        <h1 style="color:#5d073e;font-size:17px">24 hours Support</h1>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <!-- Should Be Empty For Space in between -->
+                    </div>
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/support.png" class="img-responsive center img" alt="Image" style="width:100%">
+                        <h1 style="color:#5d073e;font-size:17px">Stay Informed</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Third Container (Grid) -->
+    <div class="container-fluid bg-3 text-center"></div>
+
+    <div class="container-fluid bg-4 text-center">
+           <div class="row" style="margin-top:-110px; opacity:0.9">
+
+            <div class="col-sm-2">
+                <!-- Should Be Empty For Space in between -->
+            </div>
+
+              <div class="col-sm-8 plainborder">
+                <h1 style="color:#5d073e; font-weight:600">Get Started</h1>
+                <h3 style="color:#5d073e">We give up to date information, offer 24 hours support and also give instant payout when due.</h3>
+
+                <button class="custom-btn" style="font-size:medium" Onclick="DropDownClick(2)">SignUp/Login</button>
+                <div class="custom-dropdown" style="margin-left:150px;">
+                    <div><button style="width:140px" onclick="LoginForm()">Login</button></div>
+                    <div><button style="width:140px">Sign Up</button></div>
+                </div>
+              </div>
+            
+           </div>
+            <div class="col-sm-2">
+            </div>
+        
+           <h1 style="color:#5d073e; font-weight:600">Steps To Getting Started</h1>
+
+           <div class="row text-left" style="margin-left:10px;margin-right:10px;">
+
+
+
+              <div class="col-sm-3 shadowborder" style="border-left:15px solid #5d073e; padding-top:2em; padding-bottom:1em">
+                 <h4 style="color:black">Step 1</h4>
+                 <h2 style="color:black">Sign Up</h2>
+                 <h4 style="color:black">Fill the sign up form with the important details</h4>
+              </div>
+
+              <div class="col-sm-1"><!-- Should Be Empty For Space in between --></div>
+
+              <div class="col-sm-3 shadowborder" style="border-left:15px solid  #00172e;  padding-top:2em">
+                 <h4 style="color:black">Step 2</h4><br />
+                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Read news</h4>
+                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Watch videos</h4>
+                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Listen to songs</h4>
+              </div>
+
+               <div class="col-sm-1"><!-- Should Be Empty For Space in between --></div>
+
+              <div class="col-sm-3 shadowborder" style="border-left:15px solid deeppink;  padding-top:2em; padding-bottom:1em">
+                <h4 style="color:black">Step 3</h4><br />
+                <h4 style="color:black">Get paid</h4>
+                <h5 style="color:black">Withdraw your money anytime.</h5>
+              </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="container-fluid text-center">
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" style="margin-top:90px">
+
+                <img id="img" src="Assets/Images/hjsmith-07.png" class="img-responsive center" alt="Image" width="200" height="200"><br />
+                <h4 style="color:white">We give up to date information, offer 24 hours support and also give instant payment when due</h4>
+            </div>
+            <div class="col-sm-2"><!-- Should Be Empty For Space in between --></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2"><!-- Should Be Empty For Space in between --></div>
+
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-3"><!-- Should Be Empty For Space in between --></div>
+                    <div class="col-sm-6">
+                        <div id="myNavbar">
+                            <ul class="nav navbar-nav" style="font-size:small">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Browse</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Users</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"><!-- Should Be Empty For Space in between --></div>
+                </div>
+            </div>
+            <div class="col-sm-2"><!-- Should Be Empty For Space in between --></div>
+        </div>
+
+
+
+        <!--Social Logo Links-->
+        <div class="row" style=" margin-right:3px;">
+
+            
+                <a href="#"><div class="li-align circle" style="background-color: #1973af; padding:10px"><img src="Assets/Icons/facebook-f.png" alt="add" width="15" height="15" /></div></a>
+                <a href="#"><div class="li-align circle" style="background-color: #470202; padding:10px"><img src="Assets/Icons/instagram.png" alt="add" width="15" height="15" /></div></a>
+                <a href="#"><div class="li-align circle" style="background-color: #2a6ff8; padding:10px"><img src="Assets/Icons/twitter.png" alt="add" width="15" height="15" /></div></a>
+            
+
+            <a href="#"><div class="circle pull-right" style=" background-color: #5d073e;"><img src="Assets/Icons/arrow_forward.png" alt="add" width="15" height="15" /></div></a>
+        </div>
+
+    </footer>
+</body>
+</html>
