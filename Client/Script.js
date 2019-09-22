@@ -6,7 +6,7 @@ function LoginForm() {
             document.getElementsByClassName("container-fluid")[i].style.filter = "blur(0)";
         }
 
-        document.getElementsByClassName(" navbar")[0].style.filter = "blur(0)";
+        document.getElementsByClassName("navbar")[0].style.filter = "blur(0)";
     }
 
     else {
@@ -16,9 +16,8 @@ function LoginForm() {
             document.getElementsByClassName("container-fluid")[i].style.filter = "blur(5px)";
         }
 
-        document.getElementsByClassName(" navbar")[0].style.filter = "blur(5px)";
+        document.getElementsByClassName("navbar")[0].style.filter = "blur(5px)";
     }
-
 }
 
 function DropDownClick(x) {
@@ -28,9 +27,8 @@ function DropDownClick(x) {
         document.getElementsByClassName("custom-dropdown")[x].style.display = "block"
 }
 
-var myVar;
-
 function BufferLoad() {
+    var myVar;
     myVar = setTimeout(showPage, 3000);
 }
 
