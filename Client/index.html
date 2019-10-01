@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <link href="Style.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="Script.js"></script>
+    <script type="text/javascript" src="Client-Server.js"></script>
 </head>
-
 
 <body onload="BufferLoad()" style="margin:0;">
     <div id="loader"></div>
@@ -21,17 +22,17 @@
         <h4 style="float:right; color:black;cursor:pointer;font-weight:800" onclick="LoginForm()">X</h4>
         <h2 style="color:#ff343b; font-weight:600; margin-bottom:25px">LOG IN</h2>
 
-        <form action="/action_page.php" method="post">
-            <input type="text" placeholder="Username" name="uname" required><br/>
+        <form method="post" onsubmit="return LoginHandler()">
+            <input type="text" placeholder="Username" name="UserInfo" required><br/>
 
-            <input type="password" placeholder="Password" name="psw" required><br/>
+            <input type="password" placeholder="Password" name="UserInfo" required><br/>
             <ul>
                <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit"><h4>Login</h4></button></li> 
                <li style="float:right"><h5  !important;float:right;"><a style="color:purple"href="#">Forgot password?</a></h5></li>
             </ul>
         </form>
-
     </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-default">
         <div class="container">

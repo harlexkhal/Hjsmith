@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Get data as JSON from a PHP file on the server.</h2>
+
+    <p>The JSON received from the PHP file:</p>
+
+    <p id="demo">Dynamic Contents should be filled in here</p>
+
+
+    <form id="form" method="post"  onsubmit="return call()">
+        <input type="text" name="text" />
+        <input type="text" name="text" />
+        <input type="submit" value="submit" />
+    </form>
+
+
+    <!--java script codes-->
+<script>
+function call(){
+var obj, dbParam, xmlhttp;
+obj = {
+    "Title": document.getElementsByName("text")[0].value,
+    "Post": document.getElementsByName("text")[1].value
+};//creating and a javascript object array of the form received from the html form input.
+
+dbParam = JSON.stringify(obj);//here, the object array is beign converted to a json object so when passed to php Server, it can easily decode it.
+xmlhttp = new XMLHttpRequest(); //creating an ajax request object here....
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      myObj = JSON.parse(this.responseText); //here the returned object from the php is beign converted to json and decoded with the function Json.parse(----).->basically converting the data received from the server to a javascript object
+     
+      for (var i = 1; i < myObj[0]["Size"];++i)
+          document.getElementById("demo").innerHTML += '<h4 style="width:auto; height:20px; background:green">'+ myObj[i]["Title"] + '<h4>';//passing it to the html document. to fill those empty Spaces
+    }
+};
+
+xmlhttp.open("POST", "Server.php", true);//passing using post method take note of this..... (dont use Get method.)
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam); //passing d database parameter object to the server for processing.
+
+return false;  //Returning false, so i can block the form from automatically submitting....just to handle the request my self from the front end*
+}
+</script>
+</body>
+</html>
