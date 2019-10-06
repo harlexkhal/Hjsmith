@@ -1,16 +1,17 @@
 <?php
+  
   $dbhost  = 'localhost';  
-  $dbname  = 'HjSmith';   
+  $dbname  = 'HjSmithLocalHost';   
   $dbuser  = 'root';   
   $dbpass  = '';   
 
-  $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-  if ($connection->connect_error) die("Fatal Error");
+  $Connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+  if ($Connection->connect_error) die("Fatal Error");
 
   function QueryMySql($query)
   {
-    global $connection;
-    $result = $connection->query($query);
+    global $Connection;
+    $result = $Connection->query($query);
     if (!$result) die("Fatal Error");
     return $result;
   }
@@ -23,5 +24,21 @@
       setcookie(session_name(), '', time()-2592000, '/');
 
     session_destroy();
+  }
+
+  function SanitizeString($var)
+  {
+    global $Connection;
+    $var = strip_tags($var);
+    $var = htmlentities($var);
+    if (get_magic_quotes_gpc())
+      $var = stripslashes($var);
+    return $Connection->real_escape_string($var);
+  }
+
+   function CreateTable($name, $query)
+  {
+    queryMysql("CREATE TABLE IF NOT EXISTS $name($query)");
+    echo "Table '$name' created or already exists.<br>";
   }
 ?>

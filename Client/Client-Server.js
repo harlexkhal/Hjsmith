@@ -12,11 +12,7 @@ function LoginHandler()
     {
         if (this.readyState == 4 && this.status == 200)
         {
-            //--------Execute Depending on Response Recevied From The Server-------------------------------------------------------------------------------
-           // MyObj = JSON.parse(this.responseText);
-           // for (var i = 0; i < myObj[0]["Size"]; ++i)
-            //     document.getElementById("DummyData").innerHTML += '<h4 style="width:auto; height:20px; background:green">' + MyObj[i]["Title"] + '<h4>';
-            //-----------------------------------------------------------------------------------------------------------------------------------------------
+           
         }
     };
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Get data as JSON from a PHP file on the server.</h2>
+
+    <p>The JSON received from the PHP file:</p>
+
+    <p id="demo">Dynamic Contents should be filled in here</p>
+
+
+    <form id="form" method="post"  onsubmit="return call()">
+        <h5>Username:</h5><input type="text" name="text" /><br/>
+        <h5>Password:</h5><input type="text" name="text" /><br/>
+        <h5>Email:</h5><input type="text" name="text"/><br/>
+        <h5>Referral:</h5><input type="text" name="text"/><br/>
+        <input type="submit" value="submit" />
+    </form>
+
+
+    <!--java script codes-->
+<script>
+function call(){
+var obj, dbParam, xmlhttp;
+obj = {
+    "Username": document.getElementsByName("text")[0].value,
+    "Password": document.getElementsByName("text")[1].value,
+    "Email": document.getElementsByName("text")[2].value,
+    "Referral": document.getElementsByName("text")[3].value
+};
+
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest(); 
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200)
+    {
+        myObj = JSON.parse(this.responseText);
+        if (myObj[0]['Username'] == false)
+            document.getElementById("demo").innerHTML = myObj[1]['Username'];
+        else if (myObj[0]['Email'] == false)
+            document.getElementById("demo").innerHTML = myObj[1]['Email'];
+    }
+};
+
+xmlhttp.open("POST", "SignUp.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam); 
+
+return false;
+}
+</script>
+</body>
+</html>
