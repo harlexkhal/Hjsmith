@@ -18,8 +18,7 @@ $UserInfo=json_decode($_POST["x"], false);
  $ResponseCheck_Info= array('Username'=>'','Email'=>'');
 
   #-----First Phase of the check, checking if Username or Email contain values in them-----
-     if(empty($Username) || empty($Email))
-     {
+     if(empty($Username) || empty($Email)){
       $Err_Info = "Please, compulsory fields cannot be left empty";
 	  $ResponseCheck['Username']=false;
 	  $ResponseCheck['Email']=false;
@@ -30,59 +29,50 @@ $UserInfo=json_decode($_POST["x"], false);
 	  return;
      }
 
-     else
-     {
-       if (!preg_match("/^[a-zA-Z0-9]*$/",$Username)) 
-	   {
+     else{
+       if (!preg_match("/^[a-zA-Z0-9]*$/",$Username)) {
             $Err_Info = "Only letters and numbers allowed";
 			$ResponseCheck_Info['Username'] = $Err_Info;
 			$ResponseCheck['Username']=false;
        }
 
-	    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) 
-	    {
+	    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)){
                $Err_Info = "Invalid Email format";
 			   $ResponseCheck_Info['Email'] = $Err_Info;
 			   $ResponseCheck['Email']=false;
         }  
 
-		if($ResponseCheck['Email']==false || $ResponseCheck['Username']==false)
-	    {
+		if($ResponseCheck['Email']==false || $ResponseCheck['Username']==false){
 	       echo json_encode(array($ResponseCheck,$ResponseCheck_Info));
 		   return;
 	    }
      }
 	            
 
-	  if( $ResponseCheck['Email']==true || $ResponseCheck['Username']==true)
-	  {
+	  if( $ResponseCheck['Email']==true || $ResponseCheck['Username']==true){
 	   #----Second Phase of the check, checking if Username or Email Exist in Database Already----
 	     $DbEmail =    $Connection->query("SELECT * FROM UserInfo WHERE Email='$Email'");
 	     $DbUsername = $Connection->query("SELECT * FROM UserInfo WHERE Username='$Username'");
 	    
           
-		  if ($DbEmail->num_rows)
-	      {
+		  if ($DbEmail->num_rows){
 	           $Err_Info = 'The Email has already been used by another user';
 	           $ResponseCheck_Info['Email'] = $Err_Info;
 	           $ResponseCheck['Email']=false;
 	      }
 		  
-		  if ($DbUsername->num_rows)
-	      {
+		  if ($DbUsername->num_rows){
 	        $Err_Info = 'That Username already exists';
 	        $ResponseCheck_Info['Username'] = $Err_Info;
 	         $ResponseCheck['Username']=false;
 	      }
          
-	      if( $ResponseCheck['Email']==false || $ResponseCheck['Username']==false)
-	      {
+	      if($ResponseCheck['Email']==false || $ResponseCheck['Username']==false){
 	             echo json_encode(array($ResponseCheck,$ResponseCheck_Info));
 				 return;
 	      }
 
-          else
-          {
+          else{
             $Sql = "INSERT INTO UserInfo (Username, Password, Email) 
                     VALUES ('$Username' ,'$Password', '$Email')";
 			        $Connection->query($Sql);
