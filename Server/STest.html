@@ -2,10 +2,7 @@
 <html>
 <body>
 
-    <h2>Get data as JSON from a PHP file on the server.</h2>
-
-    <p>The JSON received from the PHP file:</p>
-
+   
     <p id="demo">Dynamic Contents should be filled in here</p>
 
 
@@ -40,6 +37,8 @@ xmlhttp.onreadystatechange = function() {
             document.getElementById("demo").innerHTML = myObj[1]['Username'];
         else if (myObj[0]['Email'] == false)
             document.getElementById("demo").innerHTML = myObj[1]['Email'];
+        else
+            window.open('#');
     }
 };
 

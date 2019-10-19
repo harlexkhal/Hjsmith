@@ -12,18 +12,18 @@ $UserInfo=json_decode($_POST["x"], false);
 
  $Err_Info='';
 
- $ResponseCheck=array();
-  $ResponseCheckInfo=array(); 
- $ResponseCheck = array('Username'=>true,'Email'=>true);
- $ResponseCheck_Info= array('Username'=>'','Email'=>'');
+ $ResponseCheck = array('Username'=>true,'Email'=>true, 'Password'=>true);
+ $ResponseCheck_Info= array('Username'=>'','Email'=>'', 'Password'=>'');
 
   #-----First Phase of the check, checking if Username or Email contain values in them-----
-     if(empty($Username) || empty($Email)){
+     if(empty($Username) || empty($Email) || empty($Password)){
       $Err_Info = "Please, compulsory fields cannot be left empty";
 	  $ResponseCheck['Username']=false;
 	  $ResponseCheck['Email']=false;
+	  $ResponseCheck['Password']=false;
       $ResponseCheck_Info['Email'] = $Err_Info;
 	  $ResponseCheck_Info['Username'] = $Err_Info;
+	  $ResoponseChek_Info['Password'] = $Err_Info;
 
 	  echo json_encode(array($ResponseCheck,$ResponseCheck_Info));
 	  return;
@@ -41,15 +41,14 @@ $UserInfo=json_decode($_POST["x"], false);
 			   $ResponseCheck_Info['Email'] = $Err_Info;
 			   $ResponseCheck['Email']=false;
         }  
-
-		if($ResponseCheck['Email']==false || $ResponseCheck['Username']==false){
+     }
+	            
+      if($ResponseCheck['Email']==false || $ResponseCheck['Username']==false){
 	       echo json_encode(array($ResponseCheck,$ResponseCheck_Info));
 		   return;
 	    }
-     }
-	            
 
-	  if( $ResponseCheck['Email']==true || $ResponseCheck['Username']==true){
+	  else{
 	   #----Second Phase of the check, checking if Username or Email Exist in Database Already----
 	     $DbEmail =    $Connection->query("SELECT * FROM UserInfo WHERE Email='$Email'");
 	     $DbUsername = $Connection->query("SELECT * FROM UserInfo WHERE Username='$Username'");

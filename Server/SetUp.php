@@ -12,7 +12,7 @@
 
   CreateTable( 'UserInfo',
               'Username VARCHAR(16),
-               Password VARCHAR(16),
+               Password VARCHAR(255),
 			   Email    VARCHAR(255),
                INDEX(Username(10))');
 

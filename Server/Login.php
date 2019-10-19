@@ -4,50 +4,36 @@
 	header("Content-Type: application/json; charset=UTF-8");
 	$UserInfo=json_decode($_POST["x"], false);
 
-	$usernameOrEmail = $UserInfo->email;#------like i dunno what u used for the input name so i assumed email sha ---------#
-	$password = $UserInfo->password;
 
-	$error = '';
+     $Username =  SanitizeString($UserInfo->Username);
+     $Password =  $UserInfo->Password;
 
-	$check = array();
-	$checkMessage = array();
-	$check = array('email' => true, 'password' => true);
-	$checkMessage = array('email' => '', 'password' => '');
+     $Authentication = array('Check'=>true,'Info'=>'');
 
-	# check if username/email and password have values in them . . .
-	if (empty('email') || empty('password')) {
-		$error = ['email' => 'Please enter your Username/Email', 'password' => 'Please enter your password'];
-		$check['email'] = false;
-		$check['password'] = false;
-		$checkMessage['email'] = $error['email'];
-		$checkMessage['password'] = $error['password'];
+	 if(empty($Username) || empty($Password)){
+	  $Authentication['Check']= false;
+	  $Authentication['Info']= "Please, compulsory fields cannot be left empty";
+	  echo json_encode($Authentication);
+	  return;
+     }
+	
+	if ($Authentication['Check']==true) {
+	#---Second phase of the check-> checking if Username matches the Password---
+	    $Password = md5($UserInfo->Password);
+		$DbAuthentication = $Connection->query("SELECT * FROM UserInfo WHERE Username = '$Username' AND Password = '$Password'");
 
-		echo json_encode(array($check, $checkMessage));
-		return;
-	}
+		   if (!$DbAuthentication->num_rows) {
+	           $Authentication['Check']=false;
+	           $Authentication['Info']= "Incorrect username or password";
+			   echo json_encode($Authentication);
+	           return;
+		   }
 
-	if ($check['email'] == true || $check['password'] == true) {
-		$dbEmailOrUsername = $Connection->query("SELECT * FROM UserInfo WHERE Email = $usernameOrEmail OR Username = $usernameOrEmail");
-
-		if (!$dbEmailOrUsername->num_rows) {
-			$error = 'Incorrect Username/Email or Password';
-			$check['email'] = false;
-			$checkMessage['email'] = $error; 
-		}
-
-		if (!password_verify($password, $dbEmailOrUsername['Password'])) {
-			$error = 'Incorrect Username/Email or Password';
-			$check['password'] = false;
-			$checkMessage['password'] = $error;
-
-		}
-
-		if ($check['email'] == false || $check['password'] == false) {
-			echo json_encode(array($check, $checkMessage));
+		else {
+		     $_SESSION['Username'] = $Username;
+             $_SESSION['Password'] = $Password;
+			echo json_encode($Authentication);
 			return;
-			
-		}else {
-			#---Temporary---#
-			header('location:hjsmith.com.ng');
 		}
 	}
+?>
