@@ -19,15 +19,17 @@
 	
 	if ($Authentication['Check']==true) {
 	#---Second phase of the check-> checking if Username matches the Password---
-	    $Password = md5($UserInfo->Password);
-		$DbAuthentication = $Connection->query("SELECT * FROM UserInfo WHERE Username = '$Username' AND Password = '$Password'");
+	    
+		$DbAuthentication = $Connection->query("SELECT * FROM UserInfo WHERE Username = '$Username'");
+		$Fetch = $DbAuthentication->fetch_array(MYSQLI_ASSOC);
+		$Hash = $Fetch['Password'];
 
-		   if (!$DbAuthentication->num_rows) {
-	           $Authentication['Check']=false;
-	           $Authentication['Info']= "Incorrect username or password";
-			   echo json_encode($Authentication);
-	           return;
-		   }
+		if (!$DbAuthentication->num_rows || !password_verify($Password, $Hash)){
+	         $Authentication['Check']=false;
+	         $Authentication['Info']= "Incorrect username or password";
+			 echo json_encode($Authentication);
+	         return;
+		}
 
 		else {
 		     $_SESSION['Username'] = $Username;

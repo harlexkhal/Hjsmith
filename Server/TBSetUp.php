@@ -13,33 +13,38 @@
   CreateTable( 'UserInfo',
               'Username VARCHAR(16),
                Password VARCHAR(255),
-			   Email    VARCHAR(255),
-               INDEX(Username(10))');
+			   Email    VARCHAR(255)');
 
-  CreateTable('AccountDetails', 
+  CreateTable( 'EmailConfirmation',
+               'RandomKey VARCHAR(512),
+			    Username VARCHAR(16),
+                Password VARCHAR(255),
+			    Email    VARCHAR(255)');
+
+  CreateTable( 'AccountDetails', 
                'Username VARCHAR(16),
 			    EWallet DECIMAL(10,2),
-				Points DECIMAL(2,1),
-				INDEX(Username(10))');
+				Points DECIMAL(2,1)');
 
-  CreateTable('UserActivity',
+  CreateTable( 'UserActivity',
                'Username VARCHAR(16),
 			    CommentCount INT UNSIGNED,
 				PostViewCount INT UNSIGNED');
 
-  CreateTable('Posts',
+  CreateTable( 'Posts',
                'Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			    Title VARCHAR(1024),
 			    Content VARCHAR(7168),
 				ViewsCount INT UNSIGNED,
 				Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                INDEX(Title(10)),
-			    INDEX(Content(50))');
+                INDEX(Title(100)),
+			    INDEX(Content(500))');
 			 
-  CreateTable('Comments',
-              ' Title VARCHAR(1024),
+  CreateTable( 'Comments',
+               'PostTitle VARCHAR(1024),
 			    Content VARCHAR(100),
-				Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP');
+				Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+				INDEX(PostTitle(100))');
 ?>
 
  <br>...done.

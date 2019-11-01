@@ -29,7 +29,7 @@
 		    {
 		        myObj = JSON.parse(this.responseText);
 		        if (myObj['Check'] == false)
-		            document.getElementById("demo").innerHTML = myObj['Info'];
+		            document.getElementById("demo").innerHTML = '<h5 style="color:red">' + myObj['Info'] + '</h5>';
 		        else
 		            window.open("#");
 		    }

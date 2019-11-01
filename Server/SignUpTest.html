@@ -28,17 +28,17 @@ obj = {
 
 dbParam = JSON.stringify(obj);
 xmlhttp = new XMLHttpRequest(); 
-
+   
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200)
     {
         myObj = JSON.parse(this.responseText);
         if (myObj[0]['Username'] == false)
-            document.getElementById("demo").innerHTML = myObj[1]['Username'];
+            document.getElementById("demo").innerHTML = '<h5 style="color:red">' + myObj[1]['Username'] + '</h5>';
         else if (myObj[0]['Email'] == false)
-            document.getElementById("demo").innerHTML = myObj[1]['Email'];
+            document.getElementById("demo").innerHTML = '<h5 style="color:red">' + myObj[1]['Email'] + '</h5>';
         else
-            window.open('#');
+            window.location.href = "SendConfirmation.php?Email="+myObj[2]['Email']+"&Key="+myObj[2]['key']+"";
     }
 };
 
