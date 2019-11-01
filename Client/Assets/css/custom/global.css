@@ -353,4 +353,7 @@ button#browse-search-btn{
     width: 50px;
     text-align: center;
 }
-
+.hj-sentmail{
+    width: 40rem;
+    margin:30px auto 30px auto; 
+}
