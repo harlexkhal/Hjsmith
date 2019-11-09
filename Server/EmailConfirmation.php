@@ -12,19 +12,21 @@
 
     $Row  = $Result->fetch_array(MYSQLI_ASSOC);
    
-    $Username = $Row['Username'];
-    $Password = $Row['Password'];
-    $Email    = $Row['Email'];
+    $UserId    =  $Row['UserId'];
+	$FirstName =  $Row['FirstName'];
+	$LastName  =  $Row['LastName'];
+    $Password  =  $Row['Password'];
+    $Email     =  $Row['Email'];
+	$Phone     =  $Row['Phone'];
 	
-    $Sql = "INSERT INTO  UserInfo (Username, Password,  Email) 
-                    VALUES ('$Username' ,'$Password', '$Email')";
+    $Sql = "INSERT INTO  UserInfo (UserId, FirstName, LastName, Email, Password, Phone) 
+                    VALUES ('$UserId' ,'$FirstName', '$LastName', '$Email', '$Password', '$Phone')";
 			        $Connection->query($Sql);
 
     $Sql= "DELETE FROM EmailConfirmation WHERE RandomKey = '$Key'";
 	 $Connection->query($Sql);
 
-	 $_SESSION['Username'] = $Username;
-     $_SESSION['Password'] = $Password;
-
-	header("Location: LoginTest.html"); #Redirecting to user Home page.
+	 $_SESSION['User'] = $UserId;
+     
+	header("Location: ../Client/profile.html"); 
 ?>

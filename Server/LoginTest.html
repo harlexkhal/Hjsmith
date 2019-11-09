@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/custom/global.css" rel="stylesheet">
+    <link href="./assets/css/all.css" rel="stylesheet">
 </head>
 <body>
 
     <p id="demo">Dynamic Contents should be filled in here</p>
 
     <form id="form" method="post" onsubmit="return call()">
-        <h5>Username:</h5><input type="text" name="text" /><br />
+        <h5>Email:</h5><input type="text" name="text" /><br />
         <h5>Password:</h5><input type="text" name="text" /><br />
         <input type="submit" value="submit" />
     </form>
 
-	<script type="text/javascript">
-		function call(){
-		var obj, dbParam, xmlhttp;
-		obj = {
-		    "Username": document.getElementsByName("text")[0].value,
-		    "Password": document.getElementsByName("text")[1].value
-		};
+    <script type="text/javascript">
+        function call(){
+        var obj, dbParam, xmlhttp;
+        obj = {
+        "Email": document.getElementsByName("text")[0].value,
+        "Password": document.getElementsByName("text")[1].value
+        };
 
-		dbParam = JSON.stringify(obj);
-		xmlhttp = new XMLHttpRequest(); 
+        dbParam = JSON.stringify(obj);
+        xmlhttp = new XMLHttpRequest();
 
-		xmlhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200)
-		    {
-		        myObj = JSON.parse(this.responseText);
-		        if (myObj['Check'] == false)
-		            document.getElementById("demo").innerHTML = '<h5 style="color:red">' + myObj['Info'] + '</h5>';
-		        else
-		            window.open("#");
-		    }
-		};
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200)
+        {
+        myObj = JSON.parse(this.responseText);
+        if (myObj['Check'] == false)
+        document.getElementById("demo").innerHTML = '<h5 style="color:red">' + myObj['Info'] + '</h5>';
+        else
+        window.open("#");
+        }
+        };
 
-		xmlhttp.open("POST", "Login.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send("x=" + dbParam); 
+        xmlhttp.open("POST", "Login.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("x=" + dbParam);
 
-		return false;
-		}		
+        return false;
+        }
 
 
-	</script>
+    </script>
 
 </body>
 </html>

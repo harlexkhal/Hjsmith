@@ -23,8 +23,8 @@
         <h2 style="color:#ff343b; font-weight:600; margin-bottom:25px">LOG IN</h2>
 
         <form method="post" onsubmit="return LoginHandler()">
-            <input type="text" placeholder="Username" name="UserInfo" required><br/>
-
+            <div id="ErrorMessage"></div>
+            <input type="text" placeholder="Email" name="UserInfo" required><br/>
             <input type="password" placeholder="Password" name="UserInfo" required><br/>
             <ul>
                <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit"><h4>Login</h4></button></li> 

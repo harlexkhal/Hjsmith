@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -24,7 +24,7 @@
                     <img src="./assets/images/logo.png" style="width: 50%;" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="display: inline; color: #fff; font-size: 22px;">
                         <i class="fas fa-bars"></i>
                     </span>
@@ -42,21 +42,22 @@
                             <a class="nav-link" href="./browse.html">Browse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact Us
+                            <a class="nav-link" href="./contact.html">
+                                Contact Us
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i>
                                 User
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#authModal"
-                                    data-mode="sign-in">Login</a>
+                                   data-mode="sign-in">Login</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#regModal"
-                                    data-mode="sign-up">Register</a>
+                                   data-mode="sign-up">Register</a>
                             </div>
                         </li>
                     </ul>
@@ -179,8 +180,8 @@
                                 <form>
                                     <div class="input-group mb-3">
                                         <input aria-label="Search" aria-describedby="basic-addon2" type="text"
-                                            class="form-control form-control-lg" id="browse-search-input"
-                                            placeholder="Search for songs">
+                                               class="form-control form-control-lg" id="browse-search-input"
+                                               placeholder="Search for songs">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button" id="browse-search-btn">
                                                 <span style="font-size: 20px;">
@@ -195,7 +196,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <div class="card text-left blog-post">
+                                <div class="card text-left blog-post"> <!--...To Do HotUpload From Server...-->
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-8 col-md-8 col-12">
@@ -532,7 +533,6 @@
             </div>
 
         </main><!-- /.container -->
-
         <!-- SECTION CTA -->
 
         <svg width="100%" height="100%" style="height: 20px;
@@ -555,7 +555,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="hj-cta-box text-center">
-                            <h2 class="text-hide"><img src="./assets/images/logo@2x.png" style="width: 25%;" alt="">
+                            <h2 class="text-hide">
+                                <img src="./assets/images/logo@2x.png" style="width: 25%;" alt="">
                             </h2>
                             <p class="mt-3 subtitle">
                                 We give up to date information, offer 24 hours support and also
@@ -607,10 +608,10 @@
         </footer>
     </div>
 
-     <!-- MODALS -->
+    <!-- MODALS -->
     <!-- MODALS: SIGN IN -->
     <div class="modal fade authModal" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalTitle"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -623,11 +624,11 @@
                     <form id="login-form">
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Email Address">
+                                   placeholder="Email Address">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password">
+                                   placeholder="Password">
                         </div>
                         <div class="form-row align-items-center">
                             <div class="col-auto my-1 pull-right">
@@ -635,7 +636,7 @@
                             </div>
                             <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
                                 <a id="reset-password" data-toggle="modal" data-target="#resetModal"
-                                    data-dismiss="modal">
+                                   data-dismiss="modal">
                                     <span>Forgot Password</span>
                                 </a>
                             </div>
@@ -646,10 +647,9 @@
         </div>
     </div>
     <!--// MODALS: SIGN IN-->
-
     <!-- MODALS: SIGN UP -->
     <div class="modal fade authModal" id="regModal" tabindex="-1" role="dialog" aria-labelledby="authModalTitle"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -659,39 +659,40 @@
                     </button>
                 </div>
                 <div class="modal-body container">
-                    <form id="signUp-form">
+                    <form id="signUp-form" method="post" onsubmit="return SignupHandler()">
+                        <div id="ErrorMessage"></div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputFirstName" placeholder="First Name"
-                                    name="firstName">
+                                       name="UserInfo">
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
-                                    name="lastName">
+                                       name="UserInfo">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Email Address">
+                            <input type="email" class="form-control" id="email" name="UserInfo"
+                                   placeholder="Email Address">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number"
-                                    name="phone">
+                                       name="UserInfo">
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputReferralLink"
-                                    placeholder="Referral Link" name="referralLink">
+                                       placeholder="Referral Link" name="UserInfo">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="UserInfo"
+                                       placeholder="Password">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="password" class="form-control" id="password2" name="password2"
-                                    placeholder="Confirm Password">
+                                <input type="password" class="form-control" id="password2" name="UserInfo"
+                                       placeholder="Confirm Password">
                             </div>
                         </div>
                         <div class="form-row align-items-center">
@@ -700,7 +701,7 @@
                             </div>
                             <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
                                 <a href="#" data-dismiss="modal" id="sign-in" data-toggle="modal"
-                                    data-target="#authModal" data-mode="sign-in"><span>Sign In</span></a>
+                                   data-target="#authModal" data-mode="sign-in"><span>Sign In</span></a>
                             </div>
                         </div>
                     </form>
@@ -709,10 +710,9 @@
         </div>
     </div>
     <!--// MODALS: SIGN UP-->
-
     <!-- MODALS: RESET PASSWORD -->
     <div class="modal fade authModal" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalTitle"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -725,12 +725,14 @@
                     <form id="login-form">
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Email Address">
+                                   placeholder="Email Address">
                         </div>
                         <div class="form-row align-items-center mt-5">
                             <div class="col-auto my-1 pull-right">
                                 <button type="submit" class="btn btn-primary btn-hj"
-                                    style="text-transform: none;">Retrieve</button>
+                                        style="text-transform: none;">
+                                    Retrieve
+                                </button>
                             </div>
                         </div>
                         <p class="mt-4">
@@ -743,101 +745,103 @@
     </div>
     <!--// MODALS: RESET PASSWORD-->
     <!--// MODALS -->
-
-
     <!-- Bootstrap core JavaScript -->
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
 
+    <!--Server-Response JavaScript-->
+    <script type="text/javascript" src="Client-Server.js"></script>
+
     <script type="text/javascript">
         $(document).ready(() => {
 
-            //tryouts
+        //tryouts
 
-            $('#authModal').on('show.bs.modal', function (event) {
-                var trigger = $(event.relatedTarget)
-                var mode = trigger.data('mode')
-                var modal = $(this)
+        $('#authModal').on('show.bs.modal', function (event) {
+        var trigger = $(event.relatedTarget)
+        var mode = trigger.data('mode')
+        var modal = $(this)
 
-                signInForm = `
-                    <form id="login-form">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                        </div>
-                        <div class="form-row align-items-center">
-                            <div class="col-auto my-1 pull-right">
-                                <button type="submit" class="btn btn-primary btn-hj">Login</button>
-                            </div>
-                            <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
-                                <a id="reset-password" data-toggle="modal" data-target="#resetModal" data-dismiss="modal">
-                                    <span>Forgot Password</span>
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                `;
+        signInForm = `
+        <form id="login-form"  method="post" onsubmit="return LoginHandler()">
+        <div id="ErrorMessage"></div>
+        <div class="form-group">
+        <input type="email" class="form-control" id="email" name="UserInfo" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+        <input type="password" class="form-control" id="password" name="UserInfo" placeholder="Password">
+        </div>
+        <div class="form-row align-items-center">
+        <div class="col-auto my-1 pull-right">
+        <button type="submit" class="btn btn-primary btn-hj">Login</button>
+        </div>
+        <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
+        <a id="reset-password" data-toggle="modal" data-target="#resetModal" data-dismiss="modal">
+        <span>Forgot Password</span>
+        </a>
+        </div>
+        </div>
+        </form>
+        `;
 
-                signUpForm = `
-                    <form id="signUp-form">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="firstName">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="lastName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phone">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="inputReferralLink" placeholder="Referral Link" name="referralLink">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                            </div>
-                            <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
-                            </div>
-                        </div>
-                        <div class="form-row align-items-center">
-                            <div class="col-auto my-1 pull-right">
-                                <button type="submit" class="btn btn-primary btn-hj">Login</button>
-                            </div>
-                            <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
-                                <a href="#" data-dismiss="modal" id="sign-in" data-toggle="modal" data-target="#authModal" data-mode="sign-in"><span>Sign In</span></a>
-                            </div>
-                        </div>
-                    </form>
-                `;
+        signUpForm = `
+        <form id="signUp-form">
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="firstName">
+        </div>
+        <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="lastName">
+        </div>
+        </div>
+        <div class="form-group">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phone">
+        </div>
+        <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputReferralLink" placeholder="Referral Link" name="referralLink">
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group col-md-6">
+        <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
+        </div>
+        </div>
+        <div class="form-row align-items-center">
+        <div class="col-auto my-1 pull-right">
+        <button type="submit" class="btn btn-primary btn-hj">Login</button>
+        </div>
+        <div class="col-auto my-1 pull-right modal-link" style="position: absolute; right: 40px;">
+        <a href="#" data-dismiss="modal" id="sign-in" data-toggle="modal" data-target="#authModal" data-mode="sign-in"><span>Sign In</span></a>
+        </div>
+        </div>
+        </form>
+        `;
 
-                if (mode === "sign-in") {
-                    modal.find('.modal-body').html(signInForm);
-                    modal.find('.modal-header .modal-title').text('Login');
-                } else if (mode === "sign-up") {
-                    modal.find('.modal-body').html(signUpForm);
-                    modal.find('.modal-header .modal-title').text('Sign Up!!!');
-                    $('#sign-in').on('click', () => {
-                        $("#authModal").on("hidden.bs.modal", function () {
-                            modal.find('.modal-header .modal-title').text('Login');
-                            $("#authModal .modal-body").html(signInForm);
-                            $('#authModal').modal('show');
-                        });
-                    })
-                } else {
-                    modal.find('.modal-body').text(mode)
-                    modal.find('.modal-body input').val(mode)
-                }
-            });
+        if (mode === "sign-in") {
+        modal.find('.modal-body').html(signInForm);
+        modal.find('.modal-header .modal-title').text('Login');
+        } else if (mode === "sign-up") {
+        modal.find('.modal-body').html(signUpForm);
+        modal.find('.modal-header .modal-title').text('Sign Up!!!');
+        $('#sign-in').on('click', () => {
+        $("#authModal").on("hidden.bs.modal", function () {
+        modal.find('.modal-header .modal-title').text('Login');
+        $("#authModal .modal-body").html(signInForm);
+        $('#authModal').modal('show');
+        });
+        })
+        } else {
+        modal.find('.modal-body').text(mode)
+        modal.find('.modal-body input').val(mode)
+        }
+        });
         })
     </script>
 

@@ -11,15 +11,21 @@
   require_once 'Dependencies.php';
 
   CreateTable( 'UserInfo',
-              'Username VARCHAR(16),
-               Password VARCHAR(255),
-			   Email    VARCHAR(255)');
+              'UserId VARCHAR(255),
+			   FirstName VARCHAR(255),
+			   LastName VARCHAR(255),
+			   Email VARCHAR(255),
+			   Password VARCHAR(255),
+			   Phone  VARCHAR(20)');
 
   CreateTable( 'EmailConfirmation',
                'RandomKey VARCHAR(512),
-			    Username VARCHAR(16),
+			    UserId VARCHAR(255),
+				FirstName VARCHAR(255),
+				LastName VARCHAR(255),
+				Email    VARCHAR(255),
                 Password VARCHAR(255),
-			    Email    VARCHAR(255)');
+				Phone    VARCHAR(32)');
 
   CreateTable( 'AccountDetails', 
                'Username VARCHAR(16),
