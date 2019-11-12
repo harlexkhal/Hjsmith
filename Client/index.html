@@ -18,17 +18,38 @@
 <body onload="BufferLoad()" style="margin:0;">
     <div id="loader"></div>
 
-    <div class="Modal-Login shadowborder animate">
+    <div class="Modal-Login animate">
         <h4 style="float:right; color:black;cursor:pointer;font-weight:800" onclick="LoginForm()">X</h4>
         <h2 style="color:#ff343b; font-weight:600; margin-bottom:25px">LOG IN</h2>
 
         <form method="post" onsubmit="return LoginHandler()">
             <div id="ErrorMessage"></div>
-            <input type="text" placeholder="Email" name="UserInfo" required><br/>
-            <input type="password" placeholder="Password" name="UserInfo" required><br/>
+            <input type="text" placeholder="Email" name="UserInfo" required><br />
+            <input type="password" placeholder="Password" name="UserInfo" required><br />
             <ul>
-               <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit"><h4>Login</h4></button></li> 
-               <li style="float:right"><h5  !important;float:right;"><a style="color:purple"href="#">Forgot password?</a></h5></li>
+                <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit" style=" width:100px; margin-left:-25px;"><h4>Login</h4></button></li>
+                <li style="float:right"><h5><a style="color:purple" href="#">Forgot password?</a></h5></li>
+            </ul>
+        </form>
+    </div>
+
+    <div class="Modal-Signup animate">
+        <h4 style="float:right; color:black;cursor:pointer;font-weight:800" onclick="SignupForm()">X</h4>
+        <h2 style="color:#ff343b; font-weight:600; margin-bottom:25px; text-align:center">SIGN UP</h2>
+
+        <form method="post" onsubmit="return LoginHandler()">
+            <div id="ErrorMessage"></div>
+            <ul>
+                <li class="li-align-modal"><input type="text" placeholder="Firstname" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" placeholder="Lastname" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" style="width:98%; margin-top:10px" placeholder="Email" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" style="margin-top:10px;" placeholder="Phone number" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" style="margin-top:10px;" placeholder="Referral" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" style="margin-top:10px;" placeholder="Password" name="UserInfo" required></li>
+                <li class="li-align-modal"><input type="password" style="margin-top:10px;" placeholder="Confirm Password" name="UserInfo" required></li>
+
+                <li style="float:left; margin-top:10px;"><button class="custom-btn" type="submit" style=" width:100px; margin-left:-8px;"><h4>Login</h4></button></li>
+                <li style="float:right; margin-right:40px;"><h4><a style="color:purple" href="#">sign in</a></h4></li>
             </ul>
         </form>
     </div>
@@ -52,10 +73,10 @@
                     <li><a href="#">Browse</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" Onclick="DropDownClick(0)"><img src="Assets/Icons/user.png" alt="add" width="15" height="15"/> Users</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" Onclick="DropDownClick(0)"><img src="Assets/Icons/user.png" alt="add" width="15" height="15" /> Users</a>
                         <div class="custom-dropdown">
-                            <div><button style="width:100px"  onclick="LoginForm()">Login</button></div>
-                            <div><button style="width:100px">Sign Up</button></div>
+                            <div><button style="width:100px" onclick="LoginForm()">Login</button></div>
+                            <div><button style="width:100px" onclick="SignupForm()">Sign Up</button></div>
                         </div>
                     </li>
                 </ul>
@@ -71,10 +92,10 @@
             <div class="col-sm-6">
                 <h1 style="font-size:60px;margin-left:45px">Turn Your PHONE Into CASH!</h1>
                 <h3 style="margin-left:45px;color:hsl(0, 8%, 71%)">Get cash in turn for reading news, Watching videos and listening to audio<br /><br /><br /></h3>
-                <button class="custom-btn" style="margin-left:45px; font-size:medium"  Onclick="DropDownClick(1)">SignUp/Login</button>
-                <div class="custom-dropdown"style="margin-left:45px">
+                <button class="custom-btn" style="margin-left:45px; font-size:medium" Onclick="DropDownClick(1)">SignUp/Login</button>
+                <div class="custom-dropdown" style="margin-left:45px">
                     <div><button style="width:140px" onclick="LoginForm()">Login</button></div>
-                    <div><button style="width:140px">Sign Up</button></div>
+                    <div><button style="width:140px" onclick="SignupForm()">Sign Up</button></div>
                 </div>
             </div>
 
@@ -112,7 +133,7 @@
                     </div>
 
                     <div class="col-sm-1">
-                        <!-- Should Be Empty For Space in between --><br/>
+                        <!-- Should Be Empty For Space in between --><br />
                     </div>
 
                     <div class="col-sm-3 shadowborder">
@@ -129,55 +150,55 @@
     <div class="container-fluid bg-3 text-center"></div>
 
     <div class="container-fluid bg-4 text-center">
-           <div class="row" style="margin-top:-150px; opacity:0.9">
+        <div class="row" style="margin-top:-150px; opacity:0.9">
 
             <div class="col-sm-2">
                 <!-- Should Be Empty For Space in between -->
             </div>
 
-              <div class="col-sm-8 plainborder">
+            <div class="col-sm-8 plainborder">
                 <h1 style="color:#5d073e; font-weight:600">Get Started</h1>
                 <h3 style="color:#5d073e">We give up to date information, offer 24 hours support and also give instant payout when due.</h3>
 
                 <button class="custom-btn" style="font-size:medium" Onclick="DropDownClick(2)">Get Started</button>
                 <div class="custom-dropdown" style="margin-left:150px;">
                     <div><button style="width:140px" onclick="LoginForm()">Login</button></div>
-                    <div><button style="width:140px">Sign Up</button></div>
+                    <div><button style="width:140px" onclick="SignupForm()">Sign Up</button></div>
                 </div>
-              </div>
-            
-           </div>
-            <div class="col-sm-2">
             </div>
-        
-           <h1 style="color:#5d073e; font-weight:600">Steps To Getting Started</h1>
 
-           <div class="row text-left" style="margin-left:10px;margin-right:10px;">
+        </div>
+        <div class="col-sm-2">
+        </div>
+
+        <h1 style="color:#5d073e; font-weight:600">Steps To Getting Started</h1>
+
+        <div class="row text-left" style="margin-left:10px;margin-right:10px;">
 
 
 
-              <div class="col-sm-3 shadowborder" style="border-left:15px solid #5d073e; padding-top:2em; padding-bottom:1em">
-                 <h4 style="color:black">Step 1</h4>
-                 <h2 style="color:black">Sign Up</h2>
-                 <h4 style="color:black">Fill the sign up form with the important details</h4>
-              </div>
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid #5d073e; padding-top:2em; padding-bottom:1em">
+                <h4 style="color:black">Step 1</h4>
+                <h2 style="color:black">Sign Up</h2>
+                <h4 style="color:black">Fill the sign up form with the important details</h4>
+            </div>
 
-              <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br/></div>
+            <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br /></div>
 
-              <div class="col-sm-3 shadowborder" style="border-left:15px solid  #00172e;  padding-top:2em">
-                 <h4 style="color:black">Step 2</h4><br />
-                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Read news</h4>
-                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Watch videos</h4>
-                 <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Listen to songs</h4>
-              </div>
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid  #00172e;  padding-top:2em">
+                <h4 style="color:black">Step 2</h4><br />
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Read news</h4>
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Watch videos</h4>
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Listen to songs</h4>
+            </div>
 
-               <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br/></div>
+            <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br /></div>
 
-              <div class="col-sm-3 shadowborder" style="border-left:15px solid deeppink;  padding-top:2em; padding-bottom:1em">
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid deeppink;  padding-top:2em; padding-bottom:1em">
                 <h4 style="color:black">Step 3</h4><br />
                 <h4 style="color:black">Get paid</h4>
                 <h5 style="color:black">Withdraw your money anytime.</h5>
-              </div>
+            </div>
         </div>
     </div>
 
@@ -222,11 +243,11 @@
         <!--Social Logo Links-->
         <div class="row" style=" margin-right:3px;">
 
-            
-                <a href="#"><div class="li-align circle" style="background-color: #1973af; padding:10px"><img src="Assets/Icons/facebook-f.png" alt="add" width="15" height="15" /></div></a>
-                <a href="#"><div class="li-align circle" style="background-color: #470202; padding:10px"><img src="Assets/Icons/instagram.png" alt="add" width="15" height="15" /></div></a>
-                <a href="#"><div class="li-align circle" style="background-color: #2a6ff8; padding:10px"><img src="Assets/Icons/twitter.png" alt="add" width="15" height="15" /></div></a>
-            
+
+            <a href="#"><div class="li-align circle" style="background-color: #1973af; padding:10px"><img src="Assets/Icons/facebook-f.png" alt="add" width="15" height="15" /></div></a>
+            <a href="#"><div class="li-align circle" style="background-color: #470202; padding:10px"><img src="Assets/Icons/instagram.png" alt="add" width="15" height="15" /></div></a>
+            <a href="#"><div class="li-align circle" style="background-color: #2a6ff8; padding:10px"><img src="Assets/Icons/twitter.png" alt="add" width="15" height="15" /></div></a>
+
 
             <a href="#"><div class="circle pull-right" style=" background-color: #5d073e;"><img src="Assets/Icons/arrow_forward.png" alt="add" width="15" height="15" /></div></a>
         </div>

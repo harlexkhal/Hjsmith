@@ -20,6 +20,28 @@ function LoginForm() {
     }
 }
 
+function SignupForm() {
+    if (document.getElementsByClassName("Modal-Signup")[0].style.display === "block") {
+        document.getElementsByClassName("Modal-Signup")[0].style.display = "none";
+
+        for (i = 0; i < 5; i++) {
+            document.getElementsByClassName("container-fluid")[i].style.filter = "blur(0)";
+        }
+
+        document.getElementsByClassName("navbar")[0].style.filter = "blur(0)";
+    }
+
+    else {
+        document.getElementsByClassName("Modal-Signup")[0].style.display = "block";
+
+        for (i = 0; i < 5; i++) {
+            document.getElementsByClassName("container-fluid")[i].style.filter = "blur(5px)";
+        }
+
+        document.getElementsByClassName("navbar")[0].style.filter = "blur(5px)";
+    }
+}
+
 function DropDownClick(x) {
     if (document.getElementsByClassName("custom-dropdown")[x].style.display === "block")
         document.getElementsByClassName("custom-dropdown")[x].style.display = "none";
