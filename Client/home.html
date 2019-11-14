@@ -1,8 +1,7 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,14 +10,25 @@
     <title>HJ Smith</title>
 
     <!-- Bootstrap core CSS -->
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+    <link href="css.css" type="text/css" rel="stylesheet" /> 
+    <script type="text/javascript" src="Script.js"></script>
+    <!-- <script type="text/javascript" src="Client-Server.js"></script> -->
+
+
+    <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/custom/global.css" rel="stylesheet">
     <link href="./assets/css/custom/style.css" rel="stylesheet">
     <link href="./assets/css/all.css" rel="stylesheet">
-
 </head>
 
-<body>
+<body onload="BufferLoad()" style="margin: 0;">
+    <div id="loader"></div>
 
     <div class="background-container">
 
@@ -37,7 +47,7 @@
                 <div class="collapse navbar-collapse mt-lg-0 mt-md-0 mt-3" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link" href="./home.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./about.html">About Us</a>
@@ -70,160 +80,120 @@
             </div>
         </nav>
 
-        <!-- Page Content -->
-        <main role="main">
+        <div class="container-fluid bg-1 text-left">
 
-            <!-- Main jumbotron for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <div class="container">
-                    <h1 class="display-3">About Us</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
 
-            <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 ">
-                        <h3 class="content-subtitle stl"> About Us</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, cu sea aperiam persecuti, sit no epicurei detraxit iudicabit.
-                            Munere dicunt sea cu. Mel delenit assentior cu. An sea eirmod consulatu incorrupte, ei
-                            liberavisse voluptatibus mea, eam quodsi fuisset accusata an. Has aeterno antiopam no, et
-                            his fugit voluptatum voluptatibus.
-                        </p>
-                        <p>
-                            <img src="assets/images/check.png"
-                                 srcset="assets/images/check@2x.png 2x, assets/images/check@3x.png 3x" class="check">
-                            Lorem ipsum dolor sit amet, cu sea aperiam persecute.
-                        </p>
-                        <p>
-                            <img src="assets/images/check.png"
-                                 srcset="assets/images/check@2x.png 2x, assets/images/check@3x.png 3x" class="check">
-                            Lorem ipsum dolor sit amet, cu sea aperiam persecute.
-                        </p>
-                        <p>
-                            <img src="assets/images/check.png"
-                                 srcset="assets/images/check@2x.png 2x, assets/images/check@3x.png 3x" class="check">
-                            Lorem ipsum dolor sit amet, cu sea aperiam persecute.
-                        </p>
-                        <p>
-                            <img src="assets/images/check.png"
-                                 srcset="assets/images/check@2x.png 2x, assets/images/check@3x.png 3x" class="check">
-                            Lorem ipsum dolor sit amet, cu sea aperiam persecute.
-                        </p>
+                    <div class="col-sm-6">
+                        <h1 style="font-size:60px;margin-left:45px; margin-top: 15%%">Turn Your PHONE Into CASH!</h1>
+                        <h3 style="margin-left:55px;color:hsl(0, 8%, 71%)">Get cash in turn for reading news,<br> Watching videos and listening to audio<br /><br /><br /></h3>
+                        <button class="custom-btn" style="margin-left:60px; font-size:medium; padding: 10px; width: 150px; color: white" data-toggle="modal" data-target="#authModal" data-mode="sign-up">Register</button>
+
+                        
                     </div>
 
-                    <div class="col-lg-6 text-center">
-                        <img src="assets/Images/hjsmith-03.png" class="img-fluid" alt="Responsive image">
+                    <div class="col-sm-5 hidden-xs">
+                        <img src="Assets/Images/hjsmith-02.png" class="img-responsive pull-right img" alt="Image" style="width:45%; float: right; margin-right: 10%; display: none;">
                     </div>
                 </div>
             </div>
 
-            <section class="second-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <h1 class="mt-5 content-title" style="color: #5d073e;">Why choose us?</h1>
-                            <p class="mtt-3 subitle">
-                                Lorem ipsum dolor sit amet, cu sea aperiam persecuti, sit no
-                                epicurei detraxit iudicabit. Eei liberavisse voluptatibus mea, eam quodsi fuisset
-                                accusata.
-                            </p>
+         <!-- Second Container -->
+    <div class="container-fluid bg-2 text-center">
+        <div class="row text-center" style="margin-left:10px;margin-right:50px;">
+            <div class="col-sm-5">
+                <img src="Assets/Images/hjsmith-03.png" class="img-responsive center img" alt="Image" style="width:80%">
+            </div>
 
-                            <div class="row">
-                                <!-- ***** card 1 ***** -->
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                    <div class="card-gg">
-                                        <div class="card-body">
-                                            <img src="assets/images/surface1.png" alt=""
-                                                 class="text-center card-img slot-img">
-                                            <h5 class="my-4" style="color: rgb(93, 7, 62);">Instant <br> Layout</h5>
-                                        </div>
+            <div class="col-sm-7">
+                <h1 style="color:#5d073e;font-size:6vw">Why choose us?</h1>
 
-                                    </div>
-                                </div>
-                                <!-- ***** card 1 End ***** -->
-                                <!-- ***** card 2 ***** -->
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                    <div class="card-gg">
-                                        <div class="card-body">
-                                            <img src="assets/images/phone-call.png" alt=""
-                                                 class="text-center card-img slot-img">
-                                            <h5 class="my-4" style="color: rgb(93, 7, 62);">24 hours<br> Support</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ***** card 2 End ***** -->
-                                <!-- ***** card 3 ***** -->
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                    <div class="card-gg">
-                                        <div class="card-body">
-                                            <img src="assets/images/support.png" alt=""
-                                                 class="text-center card-img slot-img">
-                                            <h5 class="my-4" style="color: rgb(93, 7, 62);">Stay <br> informed</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ***** card 3 ***** -->
-                            </div>
-                        </div>
+                <div class="row" style="margin-left:20px">
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/debit-card.png" class="img-responsive center img" alt="Image" style="width:80%">
+
+                        <h1 style="color:#5d073e;font-size:17px">Instant Payout</h1>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <!-- Should Be Empty For Space in between --><br />
+                    </div>
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/phone-call.png" class="img-responsive center img" alt="Image" style="width:80%">
+                        <h1 style="color:#5d073e;font-size:17px">24 hours Support</h1>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <!-- Should Be Empty For Space in between --><br />
+                    </div>
+
+                    <div class="col-sm-3 shadowborder">
+                        <img src="Assets/Images/support.png" class="img-responsive center img" alt="Image" style="width:80%">
+                        <h1 style="color:#5d073e;font-size:17px">Stay Informed</h1>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
 
-            <section class="third-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h1 class="mt-5 content-title" style="color: #5d073e;">Meet Us</h1>
-                            <p class="mtt-3 subitle">Meet the brain behind the project.</p>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 align-self-center">
-                            <img clas="team-img" src="assets/images/HJS1.png" width="404" height="304"
-                                 class="rounded img-fluid d-block mx-auto" alt="App">
-                            <h3 class="team-names text-center"><strong>Hailey Jason Smith</strong><br>CEO</h3>
-                        </div>
+    <!-- Third Container (Grid) -->
+    <div class="container-fluid bg-3 text-center"></div>
 
-                        <div class="col-lg-6 col-md-12 col-sm-12 align-self-center">
-                            <img src="assets/images/HJS1.png" width="404" height="304"
-                                 class="rounded img-fluid d-block mx-auto" alt="App">
-                            <h3 class="team-names text-center">
-                                <strong>Harriet Bradford Smith</strong><br>CO FOUNDER
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <div class="container-fluid bg-4 text-center">
+        <div class="row" style="margin-top:-150px; opacity:0.9">
 
-            <section class="fouth-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12 align-self-center">
-                            <div class="left-heading">
-                                <h2 class="content-subtitle" style="color: #5d073e;">You have a question?</h2>
-                            </div>
-                            <div class="content-subtitle stl">
-                                <p>
-                                    You have a question we have not answered? Please feel free ti reach out to us on
-                                    info@hjsmith.com
-                                </p>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-hj pull-left">Contact</button>
-                        </div>
+            <div class="col-sm-2">
+                <!-- Should Be Empty For Space in between -->
+            </div>
 
-                        <div class="col-lg-5 col-md-12 col-sm-12 align-self-center fouth-img">
-                            <img src="assets/images/hjsmith-08.png" class="rounded img-fluid d-block mx-auto" alt="App">
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div class="col-sm-8 plainborder">
+                <h1 style="color:#5d073e; font-weight:600">Get Started</h1>
+                <h3 style="color:#5d073e">We give up to date information, offer 24 hours support and also give instant payout when due.</h3>
 
-        </main>
+                <button class="custom-btn" style="font-size:medium; padding: 10px; width: 120px; color: white" data-toggle="modal" data-target="#authModal" data-mode="sign-up">GET STARTED</button>
+            </div>
+
+        </div>
+        <div class="col-sm-2">
+        </div>
+
+        <h1 style="color:#5d073e; font-weight:600">Steps To Getting Started</h1>
+
+        <div class="row text-left" style="margin-left:10px;margin-right:10px;">
+
+
+
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid #5d073e; padding-top:2em; padding-bottom:1em">
+                <h4 style="color:black">Step 1</h4>
+                <h2 style="color:black">Sign Up</h2>
+                <h4 style="color:black">Fill the sign up form with the important details</h4>
+            </div>
+
+            <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br /></div>
+
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid  #00172e;  padding-top:2em">
+                <h4 style="color:black">Step 2</h4><br />
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Read news</h4>
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Watch videos</h4>
+                <h4 style="color:black; font-weight:bold"><img src="Assets/Icons/check.png" alt="add" width="15" height="15" /> Listen to songs</h4>
+            </div>
+
+            <div class="col-sm-1"><!-- Should Be Empty For Space in between --><br /></div>
+
+            <div class="col-sm-3 shadowborder" style="border-left:15px solid deeppink;  padding-top:2em; padding-bottom:1em">
+                <h4 style="color:black">Step 3</h4><br />
+                <h4 style="color:black">Get paid</h4>
+                <h5 style="color:black">Withdraw your money anytime.</h5>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+  
 
         <svg width="100%" height="100%" style="height: 20px;">
             <defs>
@@ -297,7 +267,9 @@
         </footer>
     </div>
 
-    <!-- MODALS -->
+
+
+ <!-- MODALS -->
     <!-- MODALS: SIGN IN -->
     <div class="modal fade authModal" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalTitle"
          aria-hidden="true">
@@ -533,7 +505,5 @@
         });
         })
     </script>
-
 </body>
-
 </html>
